@@ -389,36 +389,43 @@
       };
 
       // Get id from URL query
+const providerImages = {
+        MTN: "images/Mtn.jpg",
+        Rain: "images/Rain.jpg",
+        Vodacom: "images/Vodacom.jpg",
+        Telkom: "images/Telkom.png",
+      };
+
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
 
       const productContainer = document.getElementById(
         "product-info-container",
-      ); // optional container for extra info
+      );
 
       if (products[id]) {
         const product = products[id];
 
         // Title
         document.getElementById("product-title").textContent =
-          `${product.provider} Package`;
+          ${product.provider} Package;
 
         // Image
         document.getElementById("product-img").src =
-          product.img || `images/${product.provider.toLowerCase()}.jpg`;
+          product.img || providerImages[product.provider];
 
         // Build description dynamically
         const descLines = [
-          `Download: ${product.download}`,
-          `Upload: ${product.upload}`,
-          `Data: ${product.data}`,
-          `Contract: ${product.contract}`,
-          `Network Operator: ${product.networkOperator}`,
+          Download: ${product.download},
+          Upload: ${product.upload},
+          Data: ${product.data},
+          Contract: ${product.contract},
+          Network Operator: ${product.networkOperator},
           "Package Information:",
           ...product.packageInfo,
-          `Per Month: ${product.perMonth}`,
-          `Installation Fee: ${product.installationFee}`,
-          `Activation Fee: ${product.activationFee}`,
+          Per Month: ${product.perMonth},
+          Installation Fee: ${product.installationFee},
+          Activation Fee: ${product.activationFee},
           "Promotion Information:",
           ...product.promotionInfo,
         ];
