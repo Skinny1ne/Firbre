@@ -403,40 +403,37 @@
       );
 
       if (products[id]) {
-        const product = products[id];
+  const product = products[id];
 
-        // Title
-        document.getElementById("product-title").textContent =
-          ${product.provider} Package;
+  // Title
+  document.getElementById("product-title").textContent = `${product.provider} Package`;
 
-        // Image
-        document.getElementById("product-img").src =
-          product.img || providerImages[product.provider];
+  // Image
+  document.getElementById("product-img").src = providerImages[product.provider];
 
-        // Build description dynamically
-        const descLines = [
-          Download: ${product.download},
-          Upload: ${product.upload},
-          Data: ${product.data},
-          Contract: ${product.contract},
-          Network Operator: ${product.networkOperator},
-          "Package Information:",
-          ...product.packageInfo,
-          Per Month: ${product.perMonth},
-          Installation Fee: ${product.installationFee},
-          Activation Fee: ${product.activationFee},
-          "Promotion Information:",
-          ...product.promotionInfo,
-        ];
+  // Build description dynamically
+  const descLines = [
+    `Download: ${product.download}`,
+    `Upload: ${product.upload}`,
+    `Data: ${product.data}`,
+    `Contract: ${product.contract}`,
+    `Network Operator: ${product.networkOperator}`,
+    "Package Information:",
+    ...product.packageInfo,
+    `Per Month: ${product.perMonth}`,
+    `Installation Fee: ${product.installationFee}`,
+    `Activation Fee: ${product.activationFee}`,
+    "Promotion Information:",
+    ...product.promotionInfo,
+  ];
 
-        document.getElementById("product-desc").innerHTML =
-          descLines.join("<br><br>");
-      } else {
-        document.getElementById("product-title").textContent =
-          "Product not found";
-        document.getElementById("product-desc").textContent = "";
-        document.getElementById("product-img").style.display = "none";
-      }
+  document.getElementById("product-desc").innerHTML = descLines.join("<br><br>");
+} else {
+  document.getElementById("product-title").textContent = "Product not found";
+  document.getElementById("product-desc").textContent = "";
+  document.getElementById("product-img").style.display = "none";
+}
+
     </script>
   </body>
 </html>
