@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compare Home Fibre - Durban</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .btn-hover:hover { transform: scale(1.05); transition: transform 0.2s ease-in-out; }
+  @keyframes fadeIn { from {opacity:0; transform: translateY(10px);} to {opacity:1; transform: translateY(0);} }
+  .animate-fadeIn { animation: fadeIn 0.6s ease forwards; opacity:0; }
+  .delay-100 { animation-delay:0.1s; }
+  .delay-200 { animation-delay:0.2s; }
+  .focus-ring:focus { outline: 2px solid rgba(99,102,241,0.9); outline-offset: 2px; }
+
+  .dropdown {
+    position: absolute;
+    background: rgb(28, 11, 100);
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+  .dropdown-item { padding: 10px; cursor: pointer; }
+  .dropdown-item:hover { background-color: #12064d; }
+
+  body { background-color: #1f2937; color: white; min-height: 100vh; }
+</style>
+</head>
+<body class="bg-gray-900">
+
+<!-- NAVBAR -->
+<nav class="fixed inset-x-0 top-0 z-50 bg-gray-800/95 border-b border-gray-700">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus-ring"
+                title="Toggle menu">
+          <svg id="hamburger" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg id="close-icon" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <a href="Home.html" class="flex items-center no-underline">
+          <span class="text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            DoS
+          </span>
+        </a>
+      </div>
+
+      <div class="hidden md:flex md:items-center md:space-x-3 lg:space-x-4">
+        <a href="Home.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Home</a>
+        <a href="Comparehome.html" class="px-3 py-2 rounded-md text-sm font-medium nav-active">Compare Home</a>
+        <a href="compare-business.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Business</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button aria-label="View notifications" class="p-1 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 focus-ring">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden border-t border-gray-700">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="Home.html" class="block px-3 py-2 rounded-md text-base font-medium text-white">Home</a>
+      <a href="Comparehome.html" class="block px-3 py-2 rounded-md text-base font-medium text-white">Compare Home</a>
+      <a href="compare-business.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Business</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<main class="flex flex-col items-center justify-start min-h-screen px-6 sm:px-8 gap-6 pt-24">
+  <div class="text-center">
+    <h1 class="text-3xl font-extrabold text-blue-400 animate-fadeIn">Compare Fibre - Home</h1>
+    <p class="text-gray-300 max-w-md mx-auto mt-2 animate-fadeIn delay-100">
+      Enter your street or area to see fibre availability in Durban homes.
+    </p>
+  </div>
+
+  <div class="w-full max-w-md relative mt-8 animate-fadeIn delay-200">
+    <input type="text" id="addressInput" placeholder="Enter street or area in Durban..."
+      class="w-full px-4 py-3 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md bg-gray-800 text-white">
+    <div id="dropdown" class="dropdown hidden"></div>
+    <button id="goOverview" class="w-full mt-4 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 shadow-lg btn-hover">Go</button>
+  </div>
+</main>
+
+<script>
+  // Mobile menu toggle
+  (function () {
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger');
+    const closeIcon = document.getElementById('close-icon');
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+      hamburger.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  })();
+
+  // Durban addresses
+  const addresses = [
+    "West Street, Durban Central","Smith Street, Durban Central","Victoria Embankment, Durban",
+    "Dr Pixley KaSeme Street, Durban","Anton Lembede Street, Durban","Greyville, Durban",
+    "North Beach, Durban","South Beach, Durban","Addington, Durban","Point Waterfront, Durban",
+    "Musgrave Road, Berea","Essenwood Road, Berea","Bulwer Road, Glenwood","Florida Road, Morningside",
+    "Overport Drive, Overport","Sydenham, Durban","Umbilo, Durban","Umhlanga Rocks Drive, Umhlanga",
+    "Chartwell Drive, Umhlanga","Gateway Theatre of Shopping, Umhlanga","La Lucia, Durban North",
+    "Virginia, Durban North","Broadway, Durban North","Phoenix, Durban","Mount Edgecombe, Durban",
+    "Isipingo, Durban","Prospecton, Durban","Bluff, Durban","Wentworth, Durban","Montclair, Durban",
+    "Merebank, Durban","Chatsworth, Durban","Klaarwater, Durban","Westville, Durban",
+    "Reservoir Hills, Durban","Pinetown, Durban","New Germany, Durban","Queensburgh, Durban",
+    "Clermont, Durban","Verulam, Durban","Tongaat, Durban","Redhill, Durban","Avoca, Durban",
+    "Greenwood Park, Durban","Sherwood, Durban","Cato Manor, Durban","Seaview, Durban"
+  ];
+
+  const input = document.getElementById("addressInput");
+  const dropdown = document.getElementById("dropdown");
+  let selectedAddress = null;
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    dropdown.innerHTML = "";
+    if (!query) { dropdown.classList.add("hidden"); return; }
+    const filtered = addresses.filter(addr => addr.toLowerCase().includes(query));
+    if (filtered.length > 0) {
+      dropdown.classList.remove("hidden");
+      filtered.forEach(addr => {
+        const div = document.createElement("div");
+        div.textContent = addr;
+        div.className = "dropdown-item";
+        div.onclick = () => { input.value = addr; selectedAddress = addr; dropdown.classList.add("hidden"); };
+        dropdown.appendChild(div);
+      });
+    } else { dropdown.classList.add("hidden"); }
+  });
+
+  document.getElementById("goOverview").onclick = () => {
+    if (selectedAddress) {
+      window.location.href = `product.html?address=${encodeURIComponent(selectedAddress)}&type=business`;
+    } else {
+      alert("Please select a valid address from the dropdown.");
+    }
+  };
+</script>
+</body>
+</html>

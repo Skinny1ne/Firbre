@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Product Grid</title>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 p-6">
+    <!-- NAVBAR (fixed) -->
+    <nav
+      class="fixed inset-x-0 top-0 z-50 bg-gray-800/95 border-b border-gray-700"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-4">
+            <button
+              id="mobile-menu-button"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+              class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus-ring"
+              title="Toggle menu"
+            >
+              <svg
+                id="hamburger"
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                id="close-icon"
+                class="h-6 w-6 hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M6 18 18 6M6 6l12 12"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <a href="index.html" class="flex items-center no-underline">
+              <span
+                class="text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400"
+                >DoS</span
+              >
+            </a>
+          </div>
+
+          <div class="hidden md:flex md:items-center md:space-x-3 lg:space-x-4">
+            <a
+              href="index.html"
+              class="px-3 py-2 rounded-md text-sm font-medium nav-active"
+              >Home</a
+            >
+            <a
+              href="Comparehome.html"
+              class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+              >Compare Home</a
+            >
+            <a
+              href="compare-business.html"
+              class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+              >Compare Business</a
+            >
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button
+              aria-label="View notifications"
+              class="p-1 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 focus-ring"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden border-t border-gray-700">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900/40"
+            >Home</a
+          >
+          <a
+            href="Comparehome.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+            >Compare Home</a
+          >
+          <a
+            href="compare-business.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+            >Compare Business</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-20"
+    >
+      <!-- Card 1 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=1">
+          <img
+            class="rounded-t-lg w-full h-48 object-cover"
+            src="images/Mtn.jpg"
+            alt="Product 1 image"
+          />
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 1
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 1.
+            </p>
+          </div>
+          <a
+            href="product.html?id=1"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=2">
+          <img
+            class="rounded-t-lg w-full h-48 object-cover"
+            src="images/Rain.jpg"
+            alt="Product 2 image"
+          />
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 2
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 2.
+            </p>
+          </div>
+          <a
+            href="product.html?id=2"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=3">
+          <img
+            class="rounded-t-lg w-full h-48 object-cover"
+            src="images/Telkom.png"
+            alt="Product 3 image"
+          />
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 3
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 3.
+            </p>
+          </div>
+          <a
+            href="product.html?id=3"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=4">
+          <img
+            class="rounded-t-lg w-full h-48 object-cover"
+            src="images/Rain.jpg"
+            alt="Product 4 image"
+          />
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 4
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 4.
+            </p>
+          </div>
+          <a
+            href="product.html?id=4"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=5">
+          <div
+            class="h-48 flex items-center justify-center bg-gray-100 rounded-t-lg"
+          >
+            <img
+              class="max-h-full max-w-full object-contain"
+              src="images/Vodacom.jpg"
+              alt="Product 5 image"
+            />
+          </div>
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 5
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 5.
+            </p>
+          </div>
+          <a
+            href="product.html?id=5"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div
+        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      >
+        <a href="product.html?id=6">
+          <img
+            class="rounded-t-lg w-full h-48 object-cover"
+            src="images/Mtn.jpg"
+            alt="Product 6 image"
+          />
+        </a>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Product 6
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Short description of product 6.
+            </p>
+          </div>
+          <a
+            href="product.html?id=6"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

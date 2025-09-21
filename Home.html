@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Durban Fibre Home</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .btn-hover:hover { transform: scale(1.05); transition: transform 0.2s ease-in-out; }
+  @keyframes fadeIn { from {opacity:0; transform: translateY(10px);} to {opacity:1; transform: translateY(0);} }
+  .animate-fadeIn { animation: fadeIn 0.6s ease forwards; opacity:0; }
+  .delay-100 { animation-delay:0.1s; }
+  .delay-200 { animation-delay:0.2s; }
+  .delay-300 { animation-delay:0.3s; }
+
+  /* subtle focus ring for keyboard users */
+  .focus-ring:focus { outline: 2px solid rgba(99,102,241,0.9); outline-offset: 2px; }
+
+  /* small visual tweak for active nav */
+  .nav-active { background-color: rgba(255,255,255,0.06); color: #fff; }
+</style>
+</head>
+<body class="bg-gray-900 min-h-screen text-white">
+
+<!-- NAVBAR (fixed) -->
+<nav class="fixed inset-x-0 top-0 z-50 bg-gray-800/95 border-b border-gray-700">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Left: mobile menu button + brand -->
+      <div class="flex items-center gap-4">
+        <!-- Mobile menu toggle -->
+        <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus-ring"
+                title="Toggle menu">
+          <!-- hamburger -->
+          <svg id="hamburger" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <!-- close (hidden by default) -->
+          <svg id="close-icon" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- DoS brand -->
+        <a href="index.html" class="flex items-center no-underline">
+          <span class="text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            DoS
+          </span>
+        </a>
+      </div>
+
+      <!-- Center / Desktop nav links -->
+      <div class="hidden md:flex md:items-center md:space-x-3 lg:space-x-4">
+        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium nav-active">Home</a>
+        <a href="Comparehome.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Home</a>
+        <a href="compare-business.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Business</a>
+      </div>
+
+      <!-- Right: bell -->
+      <div class="flex items-center gap-3">
+        <button aria-label="View notifications" class="p-1 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 focus-ring">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-gray-700">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900/40">Home</a>
+      <a href="Comparehome.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Home</a>
+      <a href="compare-business.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Compare Business</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT (centered) -->
+<main class="flex flex-col items-center justify-center min-h-screen px-6 sm:px-8 gap-6 pt-16">
+  <div class="text-center">
+    <h1 class="text-4xl font-extrabold text-blue-400 animate-fadeIn">Durban Fibre Live</h1>
+    <p class="text-gray-300 max-w-md mx-auto mt-2 animate-fadeIn delay-100">
+      Choose whether you want to check fibre availability for homes or businesses.
+    </p>
+  </div>
+
+  <div class="flex gap-6 mt-6 flex-wrap justify-center w-full max-w-3xl">
+    <a href="Comparehome.html"
+       class="bg-gray-800 shadow-lg rounded-xl p-6 w-64 text-center cursor-pointer hover:shadow-2xl btn-hover animate-fadeIn delay-200">
+      <h2 class="font-bold text-xl text-blue-400">Home</h2>
+      <p class="text-gray-400 mt-2">Check fibre for residential addresses.</p>
+    </a>
+
+    <a href="compare-business.html"
+       class="bg-gray-800 shadow-lg rounded-xl p-6 w-64 text-center cursor-pointer hover:shadow-2xl btn-hover animate-fadeIn delay-300">
+      <h2 class="font-bold text-xl text-blue-400">Business</h2>
+      <p class="text-gray-400 mt-2">Check fibre for offices and SMEs.</p>
+    </a>
+  </div>
+</main>
+
+<!-- small script to toggle mobile menu and swap icons -->
+<script>
+  (function () {
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+
+      // swap icons
+      hamburger.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  })();
+</script>
+</body>
+</html>
