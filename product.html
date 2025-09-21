@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Product Grid</title>
+    <title>Product Detail</title>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 p-6">
-    <!-- NAVBAR (fixed) -->
     <nav
       class="fixed inset-x-0 top-0 z-50 bg-gray-800/95 border-b border-gray-700"
     >
@@ -100,7 +99,10 @@
         </div>
       </div>
 
-      <div id="mobile-menu" class="md:hidden hidden border-t border-gray-700">
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden border-t border-gray-700 pt-20"
+      >
         <div class="px-2 pt-2 pb-3 space-y-1">
           <a
             href="index.html"
@@ -122,191 +124,319 @@
     </nav>
 
     <div
-      class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-20"
+      class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg pt-20"
     >
-      <!-- Card 1 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      <!-- Back button -->
+      <a
+        href="card_display.html"
+        class="inline-block mb-4 px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600"
+        >Back</a
       >
-        <a href="product.html?id=1">
-          <img
-            class="rounded-t-lg w-full h-48 object-cover"
-            src="images/Mtn.jpg"
-            alt="Product 1 image"
-          />
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              R759.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=1"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
+
+      <!-- Product image -->
+      <div
+        class="w-full flex items-center justify-center bg-gray-100 rounded-lg mb-4 h-64"
+      >
+        <!-- Product image -->
+        <img
+          id="product-img"
+          class="max-h-full max-w-full object-contain rounded-lg mb-4 dark:bg-gray-900"
+          src=""
+          alt="Product image"
+        />
       </div>
 
-      <!-- Card 2 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
-      >
-        <a href="product.html?id=2">
-          <img
-            class="rounded-t-lg w-full h-48 object-cover"
-            src="images/Rain.jpg"
-            alt="Product 2 image"
-          />
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              R485.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=2"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
-      </div>
+      <!-- Product info -->
+      <h1
+        id="product-title"
+        class="text-3xl font-bold text-gray-900 dark:text-white mb-2"
+      ></h1>
+      <p id="product-desc" class="text-gray-700 dark:text-gray-300 mb-4"></p>
+      <p
+        id="product-price"
+        class="text-xl font-semibold text-gray-900 dark:text-white"
+      ></p>
 
-      <!-- Card 3 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+      <button
+        class="mt-4 px-5 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
       >
-        <a href="product.html?id=3">
-          <img
-            class="rounded-t-lg w-full h-48 object-cover"
-            src="images/Telkom.png"
-            alt="Product 3 image"
-          />
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              R909.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=3"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
-      >
-        <a href="product.html?id=4">
-          <img
-            class="rounded-t-lg w-full h-48 object-cover"
-            src="images/Rain.jpg"
-            alt="Product 4 image"
-          />
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              1,399.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=4"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
-      >
-        <a href="product.html?id=5">
-          <div
-            class="h-48 flex items-center justify-center bg-gray-100 rounded-t-lg"
-          >
-            <img
-              class="max-h-full max-w-full object-contain"
-              src="images/Vodacom.jpg"
-              alt="Product 5 image"
-            />
-          </div>
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              R599.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=5"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div
-        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col"
-      >
-        <a href="product.html?id=6">
-          <img
-            class="rounded-t-lg w-full h-48 object-cover"
-            src="images/Mtn.jpg"
-            alt="Product 6 image"
-          />
-        </a>
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Month to Month Uncapped
-            </h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              R849.00
-            </p>
-          </div>
-          <a
-            href="product.html?id=6"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >Read more</a
-          >
-        </div>
-      </div>
+        Add to Cart
+      </button>
     </div>
+
+    <script>
+      // Product data (match IDs from card_display.html)
+      const products = {
+        1: {
+          provider: "MTN",
+          download: "100Mbps",
+          upload: "50Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "MTN",
+          packageInfo: [
+            "Month-to-Month",
+            "Free-to-use Router & Delivery",
+            "Free Activation & Installation",
+          ],
+          perMonth: "R759",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R499 for first 3 months",
+            "Pay Standard price of R699 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        2: {
+          provider: "Rain",
+          download: "200Mbps",
+          upload: "100Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Rain",
+          packageInfo: [
+            "Month-to-Month",
+            "Free Installation - Save up to R1500",
+            "Free To Use Router - Worth R500",
+            "Uncapped Data",
+          ],
+          perMonth: "R475.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R759 for first 3 months",
+            "Pay Standard price of R1059 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        3: {
+          provider: "Vodacom",
+          download: "300Mbps",
+          upload: "150Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Vodacom",
+          packageInfo: [
+            "Month-to-Month",
+            "Free-to-use Router & Delivery",
+            "Free Activation & Installation",
+          ],
+          perMonth: "R909.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R909 for first 3 months",
+            "Pay Standard price of R1209 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        4: {
+          provider: "Telkom",
+          download: "500Mbps",
+          upload: "250Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Telkom",
+          packageInfo: [
+            "Uncapped. Unlimited. Unbeatable.",
+            "Month-to-month contracts",
+            "Free-to-use Router included",
+          ],
+          perMonth: "R1,399.00",
+          installationFee: "Free",
+          activationFee: "R250.00",
+          promotionInfo: [
+            "Pay Promo price of R1,399 for first 3 months",
+            "Pay Standard price of R1,699 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        5: {
+          provider: "MTN",
+          download: "150Mbps",
+          upload: "75Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "MTN",
+          packageInfo: [
+            "Month-to-Month",
+            "Free-to-use Router & Delivery",
+            "Free Activation & Installation",
+          ],
+          perMonth: "R599.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R599 for first 2 months",
+            "Pay Standard price of R799 from month 3",
+            "Ts & Cs apply",
+          ],
+        },
+        6: {
+          provider: "Rain",
+          download: "250Mbps",
+          upload: "120Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Rain",
+          packageInfo: [
+            "Month-to-Month",
+            "Free Installation - Save up to R1800",
+            "Free To Use Router - Worth R600",
+            "Uncapped Data",
+          ],
+          perMonth: "R849.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R849 for first 2 months",
+            "Pay Standard price of R1049 from month 3",
+            "Ts & Cs apply",
+          ],
+        },
+        7: {
+          provider: "Vodacom",
+          download: "400Mbps",
+          upload: "200Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Vodacom",
+          packageInfo: [
+            "Month-to-Month",
+            "Free-to-use Router & Delivery",
+            "Free Activation & Installation",
+          ],
+          perMonth: "R1,099.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R1,099 for first 3 months",
+            "Pay Standard price of R1,399 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        8: {
+          provider: "Telkom",
+          download: "600Mbps",
+          upload: "300Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Telkom",
+          packageInfo: [
+            "Uncapped. Unlimited. Unbeatable.",
+            "Month-to-month contracts",
+            "Free-to-use Router included",
+          ],
+          perMonth: "R1,599.00",
+          installationFee: "Free",
+          activationFee: "R250.00",
+          promotionInfo: [
+            "Pay Promo price of R1,599 for first 3 months",
+            "Pay Standard price of R1,899 from month 4",
+            "Promo valid until 7 November 2025",
+            "Ts & Cs apply",
+          ],
+        },
+        9: {
+          provider: "MTN",
+          download: "200Mbps",
+          upload: "100Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "MTN",
+          packageInfo: [
+            "Month-to-Month",
+            "Free-to-use Router & Delivery",
+            "Free Activation & Installation",
+          ],
+          perMonth: "R749.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R749 for first 3 months",
+            "Pay Standard price of R949 from month 4",
+            "Ts & Cs apply",
+          ],
+        },
+        10: {
+          provider: "Rain",
+          download: "300Mbps",
+          upload: "150Mbps",
+          data: "Uncapped",
+          contract: "Month-to-Month",
+          networkOperator: "Rain",
+          packageInfo: [
+            "Month-to-Month",
+            "Free Installation - Save up to R2000",
+            "Free To Use Router - Worth R650",
+            "Uncapped Data",
+          ],
+          perMonth: "R959.00",
+          installationFee: "Free",
+          activationFee: "Free",
+          promotionInfo: [
+            "Pay Promo price of R959 for first 3 months",
+            "Pay Standard price of R1,159 from month 4",
+            "Ts & Cs apply",
+          ],
+        },
+      };
+
+      const providerImages = {
+        MTN: "images/Mtn.jpg",
+        Rain: "images/Rain.jpg",
+        Vodacom: "images/Vodacom.jpg",
+        Telkom: "images/Telkom.png",
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const productContainer = document.getElementById(
+        "product-info-container",
+      );
+
+      if (products[id]) {
+        const product = products[id];
+
+        // Title
+        document.getElementById("product-title").textContent =
+          ${product.provider} Package;
+
+        // Image
+        document.getElementById("product-img").src =
+          product.img || providerImages[product.provider];
+
+        // Build description dynamically
+        const descLines = [
+          Download: ${product.download},
+          Upload: ${product.upload},
+          Data: ${product.data},
+          Contract: ${product.contract},
+          Network Operator: ${product.networkOperator},
+          "Package Information:",
+          ...product.packageInfo,
+          Per Month: ${product.perMonth},
+          Installation Fee: ${product.installationFee},
+          Activation Fee: ${product.activationFee},
+          "Promotion Information:",
+          ...product.promotionInfo,
+        ];
+
+        document.getElementById("product-desc").innerHTML =
+          descLines.join("<br><br>");
+      } else {
+        document.getElementById("product-title").textContent =
+          "Product not found";
+        document.getElementById("product-desc").textContent = "";
+        document.getElementById("product-img").style.display = "none";
+      }
+    </script>
   </body>
 </html>
